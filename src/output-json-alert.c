@@ -121,7 +121,7 @@ static void AlertJsonHttp(const Flow *f, json_t *js)
     return;
 }
 
-static int AlertJson(ThreadVars *tv, JsonAlertLogThread *aft, const Packet *p)
+static int AlertJson(ThreadVars *tv, JsonAlertLogThread *aft, const Packet *p)/*static int AlertHPFeedsLogger(ThreadVars *tv, void *thread_data, const Packet *p)*/
 {
     MemBuffer *payload = aft->payload_buffer;
     AlertJsonOutputCtx *json_output_ctx = aft->json_output_ctx;

@@ -426,6 +426,17 @@ static int AlertHPFeedsLogger(ThreadVars *tv, void *thread_data, const Packet *p
         json_object_set_new(record, "signature_id",  json_integer(pa->s->id));
         json_object_set_new(record, "signature_rev", json_integer(pa->s->rev));
         json_object_set_new(record, "signature",     json_string((pa->s->msg) ? pa->s->msg : ""));
+        // add zzh -20180507
+        json_object_set_new(record, "category",json_string((pa->s->class_msg) ? pa->s->class_msg : ""));
+        //add zzh -20180507
+        //unsigned char packet_buf[p->payload_len + 1];
+        //uint32_t offset = 0;
+        //PrintStringsToBuffer(packet_buf, &offset,
+                             //p->payload_len + 1,
+                             //p->payload, p->payload_len);
+        //json_object_set_new(record, "payload_printable", json_string((char *)packet_buf));
+        //add zzh -20180507
+
     }
 
     HPFeedsPublish(record, ctx);
